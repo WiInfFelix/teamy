@@ -38,11 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.sites",
 
     "rest_framework",
-    "rest_framework.authtoken",
-    "dj_rest_auth",
-    "dj_rest_auth.registration",
-    "allauth.account",
-    "allauth",
 
     "organisations",
 ]
@@ -132,14 +127,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    ],
-}
 
-REST_USE_JWT = True
-JWT_AUTH_COOKIE = "teamsy-auth"
-JWT_AUTH_REFRESH_COOKIE = "teamsy-refresh-token"
-
-SITE_ID = 1
