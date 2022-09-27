@@ -1,5 +1,7 @@
 from django.db import models
+
 from teamy import settings
+
 
 # Create your models here.
 class Task(models.Model):
@@ -20,3 +22,11 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         related_name="%(class)s_tasks_assigned",
     )
+
+
+class Comment(models.Model):
+    comment_text = models.TextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    task = models.ForeignKey("tasks.Task", on_delete=models.CASCADE)
+    author = models.ForeignKey("accounts.CustomUser", on_delete=models.DO_NOTHING)

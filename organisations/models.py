@@ -1,5 +1,7 @@
 from django.db import models
+
 from teamy import settings
+
 
 # Create your models here.
 class Organisation(models.Model):
