@@ -11,5 +11,9 @@ class Organisation(models.Model):
     city = models.CharField("City", max_length=128)
     founder = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.DO_NOTHING)
 
+    org_members = models.ManyToManyField(
+        settings.AUTH_USER_MODEL, related_name="org_members"
+    )
+
     def __str__(self) -> str:
         return self.name
